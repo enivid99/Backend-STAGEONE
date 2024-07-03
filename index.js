@@ -3,8 +3,8 @@ const app = express()
 const axios = require("axios")
 require("dotenv").config()
 
-app.use(json());
-app.use(urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.set("trust proxy", true);
 
 app.get("/", (req,res) => {
