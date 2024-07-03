@@ -18,7 +18,7 @@ app.get("/api/hello", async (req, res) => {
     try {
         const response = await axios.get( "http://api.weatherapi.com/v1/current.json", {
         params: {
-        key: process.env.key,
+        key: process.env.apikey,
         q: clientAddr,
         aqi: "no"
         }});
