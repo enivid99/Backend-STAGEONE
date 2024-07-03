@@ -16,7 +16,7 @@ app.get("/api/hello", async (req, res) => {
     const clientAddr = req.ip;
 
     try {
-        const response = await axios.get( "http://api.weatherapi.com/v1/current.json", {
+        const response = await axios.get("http://api.weatherapi.com/v1/current.json", {
         params: {
         key: process.env.apikey,
         q: clientAddr,
@@ -25,9 +25,10 @@ app.get("/api/hello", async (req, res) => {
         
         const clientCity = response.data.location.name 
         const clientTemp = response.data.current.temp_c
+
         
         res.status(200).json({
-              client_ip: ipAddr,
+              client_ip: clientAddr,
               location: clientCity,
               greeting: `Hello, ${visitorName}!, the temperature is ${clientTemp} degrees Celcius in ${clientCity}`,});
         
